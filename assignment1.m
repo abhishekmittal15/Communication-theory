@@ -63,19 +63,19 @@ vs=filter(b,a,usrec);
 % the below for loop tries to remove the offset 
 for i=t
     index=round(i*1000)+1;
-    vcoff(index)=vc(index)*cos(theta*index)-vs(index)*sin(theta*index);
-    vsoff(index)=vs(index)*cos(theta*index)+vc(index)*sin(theta*index);
+    vcoff(index)=vc(index)*cos(theta*i)-vs(index)*sin(theta*i);
+    vsoff(index)=1*vs(index)*cos(theta*i)+vc(index)*sin(theta*i);
 end
 % title('the phase is pi/4');
 subplot(2,2,1)
 plot(t,uc);
 title('the transmitted I component');
 subplot(2,2,2)
-plot(t,vc);
+plot(t,vcoff);
 title('the received I component');
 subplot(2,2,3)
 plot(t,us);
 title('the transmitted Q component');
 subplot(2,2,4)
-plot(t,vs);
+plot(t,vsoff);
 title('the received Q component');
